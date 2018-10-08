@@ -9,3 +9,7 @@ const grid = new JeopardyGrid ({
 function randNum(max) {
     return Math.floor(Math.random() * max);
 }
+
+function reload () {
+    window.location.reload(false);
+}

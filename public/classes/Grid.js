@@ -86,7 +86,7 @@ class JeopardyGrid extends Grid {
 
     async getCategories () {
         const promisedObj = this.categoryIDs.map(async categoryID => {
-            const res = await fetch("http://jservice.io/api/category?id=" + categoryID);
+            const res = await fetch("http://localhost:3000/api/category/" + categoryID);
             const hydrated = await res.json();
             return hydrated;
         })
@@ -113,8 +113,16 @@ class JeopardyGrid extends Grid {
     onClick (cell) {
         console.log(cell);
         console.log(cell.answer)
-        let userAnswer = prompt(cell.question).toLowerCase()
-        if (userAnswer == cell.answer.toLowerCase()) {
+
+        let finalAnswer = cell.answer.toLowerCase().replace(/[^\w\s]/gi, "");
+        let userInput = prompt(cell.question)
+        let userAnswer = userInput.toLowerCase().replace(/[^\w\s]/gi, "");
+
+        userInput = userInput.replace(" & ", "").replace("a ","").replace("an ","").replace("the ","").replace("is ","").replace(" ","").replace("s","").replace("es","").replace("its ","");
+        userAnswer = userAnswer.replace(" & ", "").replace("a ","").replace("an ","").replace("the ","").replace("is ","").replace(" ","").replace("s","").replace("es","").replace("its ","");
+        finalAnswer = finalAnswer.replace(" & ", "").replace("a ","").replace("an ","").replace("the ","").replace("is ","").replace(" ","").replace("s","").replace("es","").replace("its ","");
+        
+        if (userAnswer == finalAnswer) {
             console.log("correct");
             let correctAnswer = "You Are Correct";
             score += cell.pointValue;
