@@ -1,0 +1,68 @@
+#scoreboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#totalScore {
+    font-size: 30px;
+    margin-top: 22px;
+    margin-left: 10px;
+}
+
+h1 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.row, .catCell {
+    /* display block by default */
+    /* width is forced by cells, but height needs to be same */
+    height: 85px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.cell, .catCell {
+    height: 85px;
+    width: 180px;
+    /* shouldnt be blocks b/c should be next to others; could do flexbox stuff */
+    /* display: inline-block; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(25, 69, 189);
+    font-size: 25px;
+    color: rgb(243, 207, 1);
+}
+
+.catCell {
+    flex-direction: row;
+    font-weight: bold;
+}
+
+.cell {
+    flex-direction: column;
+}
+
+.red-border, .catCell {
+    border: 2px solid black;
+}
+
+.green-border, .catCell {
+    border: 2px solid black;
+}
+
+.clicked {
+    color: rgb(25, 69, 189);
+    z-index: -1;
+}
