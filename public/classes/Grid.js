@@ -131,6 +131,7 @@ class JeopardyGrid extends Grid {
             let element = document.createElement("div");
             let divText = document.createTextNode(`Your Answer: ${userAnswer} | Correct Answer: ${cell.answer} | ${correctAnswer}`);
             element.appendChild(divText);
+            element.classList.add("test")
             let place = document.getElementById("answers");
             place.appendChild(element);
             
@@ -143,6 +144,7 @@ class JeopardyGrid extends Grid {
             let element = document.createElement("div");
             let divText = document.createTextNode(`Your Answer: ${userAnswer} | Correct Answer: ${cell.answer} | ${correctAnswer}`);
             element.appendChild(divText);
+            element.classList.add("test")
             let place = document.getElementById("answers");
             place.appendChild(element);
         }
@@ -150,10 +152,11 @@ class JeopardyGrid extends Grid {
     
     scoreTotal () {
         let scoreElement = document.createElement("div");
-            let scoreDivText = document.createTextNode(`${score}`);
-            scoreElement.appendChild(scoreDivText);
-            let scorePlace = document.getElementById("totalScore");
-            scorePlace.appendChild(scoreElement);
+        let scoreDivText = document.createTextNode(`${score}`);
+        scoreElement.classList.add("test")
+        scoreElement.appendChild(scoreDivText);
+        let scorePlace = document.getElementById("totalScore");
+        scorePlace.appendChild(scoreElement);
             console.log(score)
     }
 }
